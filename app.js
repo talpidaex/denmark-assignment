@@ -14,17 +14,18 @@ app.get("/",(req,res)=>{
 
 app.get("/triangle",(req,res)=>{
     
-    const aParametres = req.query.a;
-    const bParametres = req.query.b;
-    const cParametres = req.query.c;
+    const a = req.query.a;
+    const b = req.query.b;
+    const c = req.query.c;
 
-    if(aParametres === bParametres && aParametres === cParametres && cParametres === bParametres){
-        console.log("Eşkenar"); 
+    if(a === b && b === c){
+        res.send("Equilateral Triangle"); 
     }
-    if(aParametres === bParametres || aParametres === cParametres || bParametres === cParametres){
-        console.log("İkizkenar Ucgen");
+    else if(a === b || a === c || b === c){
+        res.send("Isosceles Triangle");
+    }else{
+        res.send("Scalene Triangle");  
     }
-    
 });
 
 
