@@ -32,3 +32,6 @@ app.use(postsRouter);
 app.listen(3000,function(){
     console.log("Server port : 3000");
 });
+
+//this exports is neccessary for testing our project!
+module.exports = app;

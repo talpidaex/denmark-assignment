@@ -23,7 +23,7 @@ const router = express.Router();
     .delete((req,res)=>{
         connection.query("Delete from posts",(err,results)=>{
             if(!err)
-                res.send("Delete operation is successfully!")
+                res.json("Delete operation is successfully!")
         });
     })
    ////------------Special Routes----------
@@ -41,7 +41,7 @@ const router = express.Router();
             var update_name = req.body.post_name;
             connection.query("Update posts SET post_name =? where post_id=?",[update_name,post_id],(err,results)=>{
                     if(!err){
-                        res.send("Update is successfully!");
+                        res.json("Update is successfully!");
                     }else{
                         console.log(err);
                         
@@ -52,10 +52,10 @@ const router = express.Router();
         var post_id = req.params.id;
         connection.query("Delete from posts where post_id=?",post_id,(err,results)=>{
                 if(!err){
-                    res.send("Deleted where post_id :"+post_id);
+                    res.json("Deleted where post_id :"+post_id);
                 }
         });
     })
 
-
+    
 module.exports = router;

@@ -5,9 +5,12 @@ const router = express.Router();
 router.route("/comments")
     //GET ALL COMMENTS
     .get((req,res)=>{
-        connection.query(" 0Select * from comments",(err,results)=>{
+        connection.query("Select * from comments",(err,results)=>{
             if(!err){
                 res.json(results);
+            }else {
+                console.log(err);
+                
             }
         });
     })
@@ -27,7 +30,7 @@ router.route("/comments")
     .delete((req,res)=>{
         connection.query("Delete from comments",(err,reults)=>{
             if(!err){
-                res.send("Transaction of delete is successful.")
+                res.json("Transaction of delete is successful.")
             }
         });
     })

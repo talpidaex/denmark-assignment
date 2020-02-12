@@ -4,7 +4,8 @@
   "description": "back-end Assignment",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "mocha 'API/test.js'"
   },
   "author": "Oguzhan BAYRAK - Turkey",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
   }
 }
