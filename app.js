@@ -8,6 +8,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.set("view engine","ejs");
+app.use(express.static("public"));
+
+//Bonus requirements,views files.
+app.get("/",(req,res)=>{
+        res.render("homePage");
+})
 
 app.get("/triangle",(req,res)=>{
     
