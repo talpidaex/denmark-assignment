@@ -16,12 +16,12 @@ app.get("/triangle",(req,res)=>{
     const c = req.query.c;
 
     if(a === b && b === c){
-        res.send("Equilateral Triangle"); 
+        res.json("Equilateral Triangle"); 
     }
     else if(a === b || a === c || b === c){
-        res.send("Isosceles Triangle");
+        res.json("Isosceles Triangle");
     }else{
-        res.send("Scalene Triangle");  
+        res.json("Scalene Triangle");  
     }
 });
 

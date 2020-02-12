@@ -5,6 +5,20 @@ const app = require("../app");
 
 /** ----------------COMMENTS ENDPOINT TEST STEPS---------  */ 
 
+/** Testing /triangle */
+describe('Get /triangle',function(){
+
+        it("Respond with json /triangle endpoint",function(done){
+                request(app)
+                .get("/triangle")
+                .set('Accept', 'application/json')
+                .expect('Content-Type', /json/)
+                .expect(200, done);
+        });
+
+});
+
+
 /* Testing get all comments endpoint */
 describe('GET /comments', function () {
     it('respond with json containing a list of all users', function (done) {
@@ -153,5 +167,6 @@ describe("PUT /comments/:id", function(){
                 });
     });
 });
+
 
 
