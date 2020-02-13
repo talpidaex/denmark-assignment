@@ -24,3 +24,9 @@ All methods are served for same goal. Communication with Database. .GET methods 
 <strong> /posts </strong>
    this endpoint API was created like 'rest' architecture. 3 methods for all /posts and 3 methods for special Routes.<em> /posts/:id </em>
     Special routes means, we can take some data with using it's id. The same rule applies to other methods.
+
+<hr>
+<h3>Bonus Requirement - Image adding in Mysql Database</h3>
+ <h6>Process Steps</h6>
+First of all I have downloaded 'express-fileupload' package of npm that We use some methods when we upload image. (.mv method comes from this package)
+I have created a post which has 'upload-image' endpoint. I took all information about files through 'req.files' and  I have saved all image data set on our root folder and inside of database with the aid of .mv method.Should mention that, Just image names and image mimetypes have been saved on Database. I could have saved other information which comes on files. Last things, Image name and mime types information come from database and It is being shown on '/images' endpoint.
