@@ -14,7 +14,17 @@
               <a  style="margin-left: 3rem" class="btn btn-danger btn-md" href="/Triangle" role="button">/triangle</a>
               <a  style="margin-left: 3rem" class="btn btn-primary btn-md" href="/posts" role="button">/posts</a>
               <a  style="margin-left: 3rem" class="btn btn-warning btn-md" href="/comments" role="button">/comments</a>
+              <a  style="margin-left: 3rem" class="btn btn-warning btn-md" href="/images" role="button">/images</a>
             </p>
+            <br>
+            <h4> Image Upload to Database!</h4>
+           
+            <hr class="my-4">
+            <form action="/upload-image" enctype="multipart/form-data" method="POST"> 
+              <input type="file" accept="image/*" name="images" />
+              <input type="submit" value="Upload!"/>
+           </form>
+              
           </div>
     </body>
 </html>

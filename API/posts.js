@@ -56,6 +56,34 @@ const router = express.Router();
                 }
         });
     })
+    /* Bonus Requirement Save image on Database */
 
+    router.post("/upload-image",(req,res)=>{
+
+       var fileContent = req.files.images;
+       var fileName = fileContent.name;
+       var fileType = fileContent.mimetype;
+       fileContent.mv('public/Uploads/images/'+fileName,(err)=>{
+            if(!err)
+            connection.query("Insert into upload_images SET images_name=?, images_mimetype=?",[fileName,fileType],(err,results)=>{
+                if(!err){
+                  res.redirect("/images")
+                }else{
+                    console.log(err);
+                }
+            });
+       });  
+    })
+    router.get("/images",(req,res)=>{
+            /** Get all Images on DB! */
+            connection.query("Select * from upload_images",(err,rows)=>{
+                    if(!err){
+                        //send array from db to ejs file
+                        res.render("images",{rows : rows});  
+                    }
+            })
+           // res.render("images");
+    })
+    
     
 module.exports = router;

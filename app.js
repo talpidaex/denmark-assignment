@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const commentRouter = require("./API/comments");
 const postsRouter = require("./API/posts");
+const fileUpload = require("express-fileupload");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,6 +11,7 @@ app.use(bodyParser.json());
 
 app.set("view engine","ejs");
 app.use(express.static("public"));
+app.use(fileUpload());
 
 //Bonus requirements,views files.
 app.get("/",(req,res)=>{
@@ -34,6 +36,7 @@ app.get("/triangle",(req,res)=>{
 
 app.use(commentRouter);
 app.use(postsRouter);
+
 
 //-----Server information-----
 app.listen(3000,function(){
